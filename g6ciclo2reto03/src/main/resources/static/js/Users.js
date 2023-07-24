@@ -1,5 +1,5 @@
-const URL_USER = "http://localhost:8080/api/user/";
-// const URL_USER = "http://143.47.105.106:8080/api/user/";
+// const URL_USER = "http://localhost:8080/api/user/";
+const URL_USER = "http://143.47.105.106:8080/api/user/";
 const tHeaders = ['ID', 'Identificacion', 'Nombre', 'celular', 'Email', 'Tipo', 'Zona'];
 
 function validateUser() {

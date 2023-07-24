@@ -1,5 +1,5 @@
-const URL_PRODUCTS = "http://localhost:8080/api/gadget/";
-// const URL_PRODUCTS = "http://143.47.105.106:8080/api/gadget/";
+// const URL_PRODUCTS = "http://localhost:8080/api/gadget/";
+const URL_PRODUCTS = "http://143.47.105.106:8080/api/gadget/";
 const tHeaders = ['ID', 'Marca', 'Categoría', 'Nombre', 'Precio', 'Disp', 'Cant', 'foto'];
 
 async function createProduct() {
