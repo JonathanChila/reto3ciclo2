@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/estiloBootstrap.css" />
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./js/Users.js"></script>
+    <title>Bienvenido</title>
+  </head>
+  <body class="d-flex flex-column" onload="welcomeUser();">
+    <header class="d-flex align-items-center bg-dark text-white">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <img src="img/linkedin_banner_image_1.png" alt="Logo de la empresa" style="max-width: 150px; max-height: 100px;" class="mr-2">
+        <h1 class="mx-auto">El Mercader Ltda</h1>
+      </nav>
+    </header>
+
+    <main id="page-content" class="mt-5">
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card">
+              <div class="card-header bg-primary text-white">
+                Información de usuario
+              </div>
+              <div class="card-body">
+                <p><strong>Nombre:</strong> <span id="name"></span></p>
+                <p><strong>Perfil:</strong> <span id="type"></span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><br>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="list-group">
+              <li class="list-group-item"><a href="./productList.html">Lista de Productos</a></li>
+              <li class="list-group-item"><a href="./userList.html">Lista de Usuarios</a></li>
+            </ul>
+          </div>
+        </div>
+      </div><br>
+      
+      <div class="mb-4">
+        <div class="container">
+          <button onclick="location.href='Login.html'" class="btn btn-primary">SALIR</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-dark text-white py-3">
+      <div class="container text-center">
+        <p>Todos a la U: Universidad Sergio Arboleda</p>
+        <p>&copy; 2023 Todos los derechos reservados</p>
+      </div>
+    </footer>
+    
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/estiloBootstrap.css">
+  <title>Formulario de Registro</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./js/Products.js"></script>
+</head>
+<body class="d-flex flex-column">
+  <header class="d-flex align-items-center bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <img src="img/linkedin_banner_image_1.png" alt="Logo de la empresa" style="max-width: 150px; max-height: 100px;" class="mr-2">
+      <h1 class="mx-auto">El Mercader Ltda</h1>
+    </nav>
+  </header>
+
+  <main id="page-content" class="mt-5">
+    <div class="mb-4">
+        <div class="container">
+          <h1>Formulario de Registro de Producto</h1>
+          <div class="custom-form">
+            <form>
+              <div class="form-group">
+                <label for="identification">ID:</label>
+                <input type="number" class="form-control" id="identification" placeholder="Ingresa ID del producto" required autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="brand">Marca:</label>
+                <input type="text" class="form-control" id="brand" placeholder="Ingresa marca del producto" required autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="category">Categoría:</label>
+                <input type="text" class="form-control" id="category" placeholder="Ingresa Categoría del producto" required autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" placeholder="Ingresa Categoría del producto" required autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="description">Descripcion:</label>
+                <textarea class="form-control" id="campo-textarea" rows="4" placeholder="Ingresa description del producto" required></textarea>
+              </div>
+              <div class="form-group">
+                <label for="price">Precio:</label>
+                <input type="number" class="form-control" id="price" placeholder="Ingresa Categoría del producto" required autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="availability">Disponibilidad:</label>
+                <select class="form-control" id="availability">
+                    <option value="true">SI</option>
+                    <option value="false">NO</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label for="quantity">Cantidad en Stock:</label>
+                <input type="number" class="form-control" id="quantity" placeholder="Ingresa Categoría del producto" required autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="photography">Fotografia:</label>
+                <input type="text" class="form-control" id="photography" placeholder="Ingresa Categoría del producto" required autocomplete="off">
+              </div>
+            </form>
+            <button class="btn btn-primary" onclick="createProduct();">Registrar Producto</button>
+          </div><br>
+          <div class="d-flex justify-content-center">
+            <button class="btn btn-primary" onclick="location.href='./productList.html'">Lista de Productos</button>
+          </div>
+        </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white py-3">
+    <div class="container text-center">
+		<p>Todos a la U: Universidad Sergio Arboleda</p>
+		<p>&copy; 2023 Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>

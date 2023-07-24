@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/estiloBootstrap.css">
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./js/Users.js"></script>
+  
+  <title>Login</title>
+</head>
+<body class="d-flex flex-column">
+  <header class="d-flex align-items-center bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <img src="img/linkedin_banner_image_1.png" alt="Logo de la empresa" style="max-width: 150px; max-height: 100px;" class="mr-2">
+      <h1 class="mx-auto">El Mercader Ltda</h1>
+    </nav>
+  </header>
+
+  <main id="page-content" class="mt-5">
+    <div class="mb-4">
+        <div class="container">
+          <h1>Ingrese sus Datos</h1>
+          <div class="custom-form">
+            <form>
+              <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingresa tu email" required autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" required autocomplete="off">
+              </div>
+            </form>
+            <button class="btn btn-primary" onclick="validateUser();">INGRESAR</button>
+          </div><br>
+
+          <!-- <p>¿No tienes cuenta? <a href="userRegister.html">Crea tu cuenta aquí</a></p> -->
+        </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white py-3">
+    <div class="container text-center">
+		<p>Todos a la U: Universidad Sergio Arboleda</p>
+		<p>&copy; 2023 Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+html, body {
+    height: 100%;
+  }
+
+  #page-content {
+    flex: 1 0 auto;
+  }
+
+  .custom-form {
+    border: 2px solid #adb5bd; /* Color de borde gris */
+    border-radius: 10px; /* Radio de las esquinas redondeadas */
+    padding: 20px; /* Espaciado interno del formulario */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+  }
