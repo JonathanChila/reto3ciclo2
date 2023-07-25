@@ -25,5 +25,5 @@ public class Order implements Serializable {
     private String status;
     private User salesMan;
     private Map<Integer, Gadget> products;
-    private Map<Integer, Integer> quantities;    
+    private Map<Integer, Integer> quantities;
 }

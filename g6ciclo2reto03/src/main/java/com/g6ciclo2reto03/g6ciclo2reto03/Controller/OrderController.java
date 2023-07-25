@@ -24,8 +24,8 @@ public class OrderController {
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public Order newOrder(@RequestBody Order gadget) {
-        return orderService.newOrder(gadget);
+    public Order newOrder(@RequestBody Order order) {
+        return orderService.newOrder(order);
     }
 
     @PutMapping("/update")

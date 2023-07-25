@@ -36,10 +36,16 @@ public class OrderService {
     public Order updStatus(Order order) {
         Order myOrder = orderRepository.getOrderById(order.getId());
 
-        if(!myOrder.getId().equals(null)) {
-            myOrder.setStatus(order.getStatus());
+        if(myOrder.getId()!=null) {
+            // myOrder.setStatus(order.getStatus());
+            if(myOrder.getRegisterDay() != null){myOrder.setRegisterDay(order.getRegisterDay());}
+            if(myOrder.getStatus() != null){myOrder.setStatus(order.getStatus());}
+            if(myOrder.getSalesMan() != null){myOrder.setSalesMan(order.getSalesMan());}
+            if(myOrder.getProducts() != null){myOrder.setProducts(order.getProducts());}
+            if(myOrder.getQuantities() != null){myOrder.setQuantities(order.getQuantities());}
+            return orderRepository.updStatus(myOrder);
+        } else{
+            return myOrder;
         }
-
-        return myOrder;
     }
 }
