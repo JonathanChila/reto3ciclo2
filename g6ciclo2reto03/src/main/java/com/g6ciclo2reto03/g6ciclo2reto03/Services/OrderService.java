@@ -38,11 +38,11 @@ public class OrderService {
 
         if(myOrder.getId()!=null) {
             // myOrder.setStatus(order.getStatus());
-            if(myOrder.getRegisterDay() != null){myOrder.setRegisterDay(order.getRegisterDay());}
-            if(myOrder.getStatus() != null){myOrder.setStatus(order.getStatus());}
-            if(myOrder.getSalesMan() != null){myOrder.setSalesMan(order.getSalesMan());}
-            if(myOrder.getProducts() != null){myOrder.setProducts(order.getProducts());}
-            if(myOrder.getQuantities() != null){myOrder.setQuantities(order.getQuantities());}
+            if(order.getRegisterDay() != null){myOrder.setRegisterDay(order.getRegisterDay());}
+            if(order.getStatus() != null){myOrder.setStatus(order.getStatus());}
+            if(order.getSalesMan() != null){myOrder.setSalesMan(order.getSalesMan());}
+            if(order.getProducts() != null){myOrder.setProducts(order.getProducts());}
+            if(order.getQuantities() != null){myOrder.setQuantities(order.getQuantities());}
             return orderRepository.updStatus(myOrder);
         } else{
             return myOrder;
