@@ -64,4 +64,14 @@ public class UserController {
     public User getUserById(@PathVariable Integer id) {
         return userService.getUserById(id);
     }
+
+    @GetMapping("/coordinator/{zone}")
+    public User getZoneCoordinator(@PathVariable String zone) {
+        return userService.getZoneCoordinator(zone);
+    }
+
+    @GetMapping("/salesMen/{zone}")
+    public Boolean zoneHasSalesMan(@PathVariable String zone) {
+        return userService.zoneHasSalesMan(zone);
+    }
 }

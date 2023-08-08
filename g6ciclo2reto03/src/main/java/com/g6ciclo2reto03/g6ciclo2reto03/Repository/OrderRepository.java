@@ -41,4 +41,8 @@ public class OrderRepository {
     public Order updStatus(Order order) {
         return orderMongoRepository.save(order);
     }
+
+    public void deleteOrderById(Integer id) {
+        orderMongoRepository.deleteById(id);
+    }
 }

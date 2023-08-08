@@ -79,4 +79,18 @@ public class UserService {
     public User getUserById(Integer id){
         return userRepository.getUserById(id);
     }
+
+    public User getZoneCoordinator(String zone){
+        Optional<User> coordinator = userRepository.getUserByZoneAndType(zone, "COORD");
+        if(coordinator.isPresent()){
+            return coordinator.get();
+        } else {
+            return new User();
+        }
+    }
+
+    public boolean zoneHasSalesMan(String zone){
+        List<User> salesMen = userRepository.findallByZoneAndType(zone, "ASE");
+        return !salesMen.isEmpty();
+    }
 }

@@ -22,7 +22,16 @@ public class OrderService {
     }
 
 
-    public void deleteOrder(Integer id) {
+    public Boolean deleteOrder(Integer id) {
+        Order myOrder = orderRepository.getOrderById(id);
+        
+        if(myOrder.getId()!=null) {
+            orderRepository.deleteOrderById(myOrder.getId());
+            return true;
+        } else{
+            return false;
+        }
+
     }
 
     public Order getOrderById(Integer id) {
@@ -37,7 +46,6 @@ public class OrderService {
         Order myOrder = orderRepository.getOrderById(order.getId());
 
         if(myOrder.getId()!=null) {
-            // myOrder.setStatus(order.getStatus());
             if(order.getRegisterDay() != null){myOrder.setRegisterDay(order.getRegisterDay());}
             if(order.getStatus() != null){myOrder.setStatus(order.getStatus());}
             if(order.getSalesMan() != null){myOrder.setSalesMan(order.getSalesMan());}
@@ -48,4 +56,6 @@ public class OrderService {
             return myOrder;
         }
     }
+
+    
 }

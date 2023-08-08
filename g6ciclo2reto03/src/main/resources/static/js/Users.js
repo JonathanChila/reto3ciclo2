@@ -17,7 +17,7 @@ function validateUser() {
         if(response.id == null){alert("No existe usuario");}
         else{
           alert("Bienvenido: " + response.name);
-          sessionStorage.setItem("id",response.id);
+          sessionStorage.setItem("logUser",JSON.stringify(response));
           sessionStorage.setItem("thisUrl", window.location.href);
           location.href = "./mainMenu.html";
         }
@@ -109,34 +109,54 @@ async function createUser() {
 //================================================================
 
 function welcomeUser(){
-  let user = {
-    id:parseInt(sessionStorage.getItem("id"))
-  };
+  let loggedUser = JSON.parse(sessionStorage.getItem("logUser"));
+  
+  
+  if(loggedUser.id == null){alert("No existe usuario");}
+  else{
+    $("#name").text(loggedUser.name);
+    $("#zone").text(loggedUser.zone);
+    getZoneCordinator(loggedUser.zone);
+    let listProfile = '';
 
+    if(loggedUser.type=="COORD"){
+      $("#type").text("COORDINADOR");
+      listProfile += "<li class='list-group-item'><a href='./orderList.html'>Ordenes de Pedido</a></li>"
+    }
+
+    if(loggedUser.type=="ASE"){
+      $("#type").text("ASESOR");
+      listProfile += "<li class='list-group-item'><a href='./orderRegister.html'>Crear Orden de Pedido</a></li>"
+    }
+
+    if(loggedUser.type=="ADM"){
+      $("#type").text("ADMINISTRADOR");
+      listProfile += "<li class='list-group-item'><a href='./productList.html'>Lista de Productos</a></li>"
+      listProfile += "<li class='list-group-item'><a href='./userList.html'>Lista de Usuarios</a></li>"
+      listProfile += "<li class='list-group-item'><a href='./orderList.html'>Ordenes de Pedido</a></li>"
+    }
+
+    $("#profileList").append(listProfile);
+  }
+}
+
+function getZoneCordinator(zone) {
   $.ajax({
-    url: URL_USER + user.id,
+    url: URL_USER + 'coordinator/' + zone,
     type: "GET",
     dataType: "json",
+
     success: function (response) {
-      if(response.id == null){alert("No existe usuario");}
-      else{
-        $("#name").text(response.name);
-        let profile;
-        if(response.type=="COORD"){profile= "COORDINADOR"}
-        if(response.type=="ASE"){profile= "ASESOR"}
-        if(response.type=="ADM"){profile= "ADMINISTRADOR"}
-        $("#type").text(profile);
-      }
-      
+      if(response.name == null){$("#coordinator").text("No asignado");}
+      else {$("#coordinator").text(response.name);}
     },
     error: function (xhr, status) {
-      alert("No existe usuario");
+      alert("ha sucedido un problema");
     },
     complete: function (xhr, status) {
       //   alert("Petición realizada");
     },
   });
-
 }
 
 // =================================================================

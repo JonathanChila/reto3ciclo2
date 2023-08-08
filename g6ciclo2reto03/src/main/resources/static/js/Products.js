@@ -90,7 +90,7 @@ function getProducts() {
     htmlCode += "<td>" + data[i].price + "</td>";
     htmlCode += "<td>" + (data[i].availability==true?"SI":"NO") + "</td>";
     htmlCode += "<td>" + data[i].quantity + "</td>";
-    htmlCode += "<td><a href='" + data[i].photography + "' target='_blank'>foto</a></td>";
+    htmlCode += "<td><img src='" + data[i].photography + "' alt='Imagen' class='img-thumbnail img-fluid'></td>";
     htmlCode += "<td><a href='#' onclick='dataStorageSession(" + data[i].id + ",\"gadget\",tHeaders)'>Consultar-Editar</a></td>";
     htmlCode += "<td><a href='#' onclick='deleteData(" + data[i].id + ",\"gadget\")'>Eliminar</a></td>";
     htmlCode += "</tr>";

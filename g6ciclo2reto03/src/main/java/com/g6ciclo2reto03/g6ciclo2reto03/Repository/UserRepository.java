@@ -51,6 +51,14 @@ public class UserRepository {
         }
 
         return objUserReturn;
+    }
+
+    public Optional<User> getUserByZoneAndType(String zone, String type) {
+        return userMongoRepository.getUserByZoneAndType(zone, type);
+    }
+
+    public List<User> findallByZoneAndType(String zone, String type) {
+        return userMongoRepository.findAllByZoneAndType(zone, type);
     }   
 
 

@@ -1,4 +1,3 @@
-// const URL_INFO = 'http://150.136.169.53:8080/api/'
 const URL_INFO = 'http://143.47.105.106:8080/api/';
 // const URL_INFO = 'http://localhost:8080/api/'
 var arrayData = {};
@@ -53,6 +52,10 @@ function showDetails(dataInfo, tHeaders){
       case 'gadget':
         return gadgetTable(data);
 
+      case 'order':
+        showListProducts(data);
+        return orderTable(data);
+
       default:
         return '';
     }
@@ -65,6 +68,45 @@ $("#" + idTableHtml).append(htmlCode);
 $('#profile').val(dataInfo.type); 
 
 $('#availability_selector').val(dataInfo.availability==true?'true':'false');
+
+}
+
+function showListProducts(data){
+  $('#product_list').show();
+  idTableHtml = 'products_table';
+  let tHeadersProducts = ['ID', 'Marca', 'Categoría', 'Nombre', 'Precio', 'Disp', 'Stock', 'Solicitadas', 'foto'];
+  let htmlCode1 = "";
+
+  //create the header's table
+  htmlCode1 += " <thead class='thead-dark'><tr>"
+  tHeadersProducts.forEach(element => {
+      htmlCode1 += "<th>" + element + "</th>";
+  });
+  htmlCode1 += "</tr></thead>";
+
+//fill the table's body with data from oracle DB
+htmlCode1 += "<tbody>";
+let cont=1;
+Object.values(data.products).forEach(product=>{
+  htmlCode1 += "<tr class='centrar text-center'>";
+  htmlCode1 += "<td>" + product.id + "</td>";
+  htmlCode1 += "<td>" + product.brand + "</td>";
+  htmlCode1 += "<td>" + product.category + "</td>";
+  htmlCode1 += "<td>" + product.name + "</td>";
+  htmlCode1 += "<td>" + product.price + "</td>";
+  htmlCode1 += "<td>" + (product.availability==true?"SI":"NO") + "</td>";
+  htmlCode1 += "<td>" + product.quantity + "</td>";
+  htmlCode1 += "<td>" + data.quantities[cont] + "</td>";
+  htmlCode1 += "<td><img src='" + product.photography + "' alt='Imagen' class='img-thumbnail img-fluid'></td>";
+  htmlCode1 += "</tr>";
+  cont +=1;
+  });
+  htmlCode1 += "</tbody>";
+
+  //erase the table with old data and put new data 
+  $("#" + idTableHtml).html("");
+  $("#" + idTableHtml).empty();
+  $("#" + idTableHtml).append(htmlCode1);
 
 }
 
@@ -95,6 +137,15 @@ function gadgetTable(data){
   result += "<tr><th scope='row' class='text-right px-3'>DISPONIBILIDAD</th><td>" + showAvailability() + "</td></tr>";
   result += "<tr><th scope='row' class='text-right px-3'>CANTIDAD</th><td><input class='form-control' id='quantity' type='number' value='" + data.quantity + "'></td></tr>";
   result += "<tr><th scope='row' class='text-right px-3'>FOTOGRAFIA</th><td><input class='form-control' id='photography' type='text' value='" + data.photography + "'></td></tr>";
+  return result;
+}
+
+function orderTable(data){
+  result = '';
+  result += "<tr><th scope='row' class='text-right px-3'>ID</th><td class='form-control'>" + data.id + "</td></tr>";
+  result += "<tr><th scope='row' class='text-right px-3'>ASESOR</th><td class='form-control'>" + data.salesMan.name + "</td></tr>";
+  result += "<tr><th scope='row' class='text-right px-3'>FECHA</th><td class='form-control'>" + new Date(data.registerDay).toLocaleDateString() + "</td></tr>";
+  result += "<tr><th scope='row' class='text-right px-3'>STATUS</th><td class='form-control'>" + data.status + "</td></tr>";
   return result;
 }
 
